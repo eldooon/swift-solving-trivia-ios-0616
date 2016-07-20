@@ -18,5 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      */
 
+    func solveTrivia(dictionary: [String:String]) -> String {
+        
+        var stateToReturn = ""
+        
+        for (state, capital) in dictionary {
+            
+            let lowerState = state.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
+            let lowerCapital = capital.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
+            
+            let stateCharacters = NSCharacterSet.init(charactersInString: lowerState)
+            
+            if lowerCapital.rangeOfCharacterFromSet(stateCharacters) == nil{
+                stateToReturn = state
+                
+            }
+
+        }
+        
+        return stateToReturn
+    
+    }
 }
 
